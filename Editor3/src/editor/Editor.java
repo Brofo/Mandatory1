@@ -97,10 +97,11 @@ public class Editor extends JFrame {
     public void addKeyMappings() {
         inputMap.clear();
         actionMap.clear();
-        for (char ch = 'a'; ch <= 'z'; ch++) {
+        for (char ch = '1'; ch <= 'ø'; ch++) {
             String name = "insertChar";
             EditorAction action = new InsertAction(name, this);
             addKeyMapping(KeyStroke.getKeyStroke(ch), action);
+            addKeyMapping(KeyStroke.getKeyStroke(' '), action); //Adding whitespace aswell.
         }
     }
 

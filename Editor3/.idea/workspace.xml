@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c675384-2487-4aed-8b6e-71191da244ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editor/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor3/editor/Document.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Editor3/editor/Document.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor3/editor/Editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Editor3/editor/Editor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/editor/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/Document.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,8 +69,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579614181923</updated>
-      <workItem from="1579614183306" duration="8694000" />
+      <workItem from="1579614183306" duration="10321000" />
     </task>
+    <task id="LOCAL−00001" summary="- Added whitespace.&#10;- Extended the amount of chars (from 1 - ø)">
+      <created>1579629054156</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1579629054156</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,5 +93,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Added whitespace.&#10;- Extended the amount of chars (from 1 - ø)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added whitespace.&#10;- Extended the amount of chars (from 1 - ø)" />
   </component>
 </project>

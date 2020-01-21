@@ -7,6 +7,8 @@ package editor;
 
 import editor.display.CharacterDisplay;
 
+import java.util.LinkedList;
+
 /**
  * This class represents the document being edited. Using a 2d array to hold the
  * document content is probably not a very good choice. Fixing this class is the
@@ -21,24 +23,24 @@ public class Document {
     private CharacterDisplay display;
     private int cursorRow;
     private int cursorCol;
-    private char[][] data;
+    private LinkedList<Character> data;
 
     public Document(CharacterDisplay display) {
         this.display = display;
-        data = new char[CharacterDisplay.HEIGHT][CharacterDisplay.WIDTH];
+        data = new LinkedList<>();
         cursorCol = cursorRow = 0;
         display.displayCursor(' ', cursorRow, cursorCol);
     }
 
     public void insertChar(char c) {
-        data[cursorRow][cursorCol] = c;
+        data.add(c);
         display.displayChar(c, cursorRow, cursorCol);
         cursorCol++;
         if (cursorCol >= CharacterDisplay.WIDTH) {
             cursorCol = 0;
             cursorRow++;
         }
-        display.displayCursor(data[cursorRow][cursorCol],
+        display.displayCursor(data.get(cursorRow),
                               cursorRow, cursorCol);
     }
 }

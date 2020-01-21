@@ -28,6 +28,19 @@ public class InsertAction extends EditorAction {
     public void actionPerformed(ActionEvent ae) {
         Document doc = editor.getDocument();
         char ch = ae.getActionCommand().charAt(0);
-        doc.insertChar(ch);
+
+        int decimalValueOfChar = ch;
+
+        System.out.println(decimalValueOfChar);
+
+        if (decimalValueOfChar == 8) {
+            doc.backspace();
+        }
+        else if (decimalValueOfChar == 17) {
+            doc.moveCursor();
+        }
+        else {
+            doc.insertChar(ch);
+        }
     }
 }

@@ -22,4 +22,5 @@ public abstract class EditorAction extends AbstractAction {
     public String getName() {
         return (String) getValue(AbstractAction.NAME);
     }
+
 }

@@ -40,7 +40,31 @@ public class Document {
             cursorCol = 0;
             cursorRow++;
         }
+        displayCursor();
+    }
+
+    public void moveCursor() {
+        cursorCol = cursorCol -1;
+        displayCursor();
+    }
+
+    /**
+     * This method moves the cursor back one space, and removes the character
+     * at this position.
+     */
+    public void backspace() {
+        data.remove(cursorRow);
+        cursorCol = cursorCol - 1;
+        if (cursorCol < 0 && cursorRow > 0) {
+            cursorRow = cursorRow -1;
+            cursorCol = data.size();
+        }
+        display.displayChar(' ', cursorRow, cursorCol);
+        displayCursor();
+    }
+
+    private void displayCursor() {
         display.displayCursor(data.get(cursorRow),
-                              cursorRow, cursorCol);
+                cursorRow, cursorCol);
     }
 }

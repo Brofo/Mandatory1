@@ -6,6 +6,7 @@
 package editor;
 
 import editor.display.CharacterDisplay;
+import java.util.LinkedList;
 
 /**
  * This class represents the document being edited. Using a 2d array to hold the
@@ -21,24 +22,44 @@ public class Document {
     private CharacterDisplay display;
     private int cursorRow;
     private int cursorCol;
-    private char[][] data;
+    private LinkedList<Character> data;
 
     public Document(CharacterDisplay display) {
         this.display = display;
-        data = new char[CharacterDisplay.HEIGHT][CharacterDisplay.WIDTH];
+        data = new LinkedList<>();
         cursorCol = cursorRow = 0;
         display.displayCursor(' ', cursorRow, cursorCol);
     }
 
     public void insertChar(char c) {
-        data[cursorRow][cursorCol] = c;
+        data.add(c);
         display.displayChar(c, cursorRow, cursorCol);
         cursorCol++;
         if (cursorCol >= CharacterDisplay.WIDTH) {
             cursorCol = 0;
             cursorRow++;
         }
-        display.displayCursor(data[cursorRow][cursorCol],
-                              cursorRow, cursorCol);
+        displayCursor();
+    }
+
+    /**
+     * This method moves the cursor back one space, and removes the character
+     * at this position.
+     */
+    public void backspace() {
+        data.remove(cursorRow);
+        cursorCol = cursorCol - 1;
+        if (cursorCol < 0 && cursorRow > 0) {
+            cursorRow = cursorRow -1;
+            cursorCol = CharacterDisplay.WIDTH -1;
+
+        }
+        display.displayChar(' ', cursorRow, cursorCol);
+        displayCursor();
+    }
+
+    private void displayCursor() {
+        display.displayCursor(data.get(cursorRow),
+                cursorRow, cursorCol);
     }
 }

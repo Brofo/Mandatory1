@@ -11,6 +11,7 @@ import editor.display.CharacterDisplay;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ActionMap;
@@ -94,14 +95,20 @@ public class Editor extends JFrame {
         actionMap.put(action.getName(), action);
     }
 
+    /**
+     * Modifications:
+     * Instead of using type char in the for-loop, I have switched to decimals.
+     * This is to map all the possible characters from the keyboard (Even extended ASCII).
+     */
     public void addKeyMappings() {
         inputMap.clear();
         actionMap.clear();
-        for (char ch = '1'; ch <= 'ø'; ch++) {
-            String name = "insertChar";
-            EditorAction action = new InsertAction(name, this);
-            addKeyMapping(KeyStroke.getKeyStroke(ch), action);
-            addKeyMapping(KeyStroke.getKeyStroke(' '), action); //Adding whitespace aswell.
+
+        String name = "insertChar";
+        EditorAction action = new InsertAction(name, this);
+
+        for (int dec = 0; dec <= 255; dec++) {
+            addKeyMapping(KeyStroke.getKeyStroke((char)dec), action);
         }
     }
 

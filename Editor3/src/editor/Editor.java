@@ -11,6 +11,7 @@ import editor.display.CharacterDisplay;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ActionMap;
@@ -109,9 +110,6 @@ public class Editor extends JFrame {
         for (int dec = 0; dec <= 255; dec++) {
             addKeyMapping(KeyStroke.getKeyStroke((char)dec), action);
         }
-
-        //Adding key mappings for the arrow keys:
-        //addKeyMapping((KeyStroke.getKeyStroke("UP"), );
     }
 
     public CharacterDisplay getDisplay() {

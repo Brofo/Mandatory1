@@ -6,7 +6,6 @@
 package editor;
 
 import editor.display.CharacterDisplay;
-
 import java.util.LinkedList;
 
 /**
@@ -43,11 +42,6 @@ public class Document {
         displayCursor();
     }
 
-    public void moveCursor() {
-        cursorCol = cursorCol -1;
-        displayCursor();
-    }
-
     /**
      * This method moves the cursor back one space, and removes the character
      * at this position.
@@ -57,7 +51,8 @@ public class Document {
         cursorCol = cursorCol - 1;
         if (cursorCol < 0 && cursorRow > 0) {
             cursorRow = cursorRow -1;
-            cursorCol = data.size();
+            cursorCol = CharacterDisplay.WIDTH -1;
+
         }
         display.displayChar(' ', cursorRow, cursorCol);
         displayCursor();

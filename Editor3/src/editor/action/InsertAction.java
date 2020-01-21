@@ -36,9 +36,6 @@ public class InsertAction extends EditorAction {
         if (decimalValueOfChar == 8) {
             doc.backspace();
         }
-        else if (decimalValueOfChar == 17) {
-            doc.moveCursor();
-        }
         else {
             doc.insertChar(ch);
         }

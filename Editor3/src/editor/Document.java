@@ -47,16 +47,51 @@ public class Document {
      * at this position.
      */
     public void backspace() {
+
         data.remove(cursorRow);
         cursorCol = cursorCol - 1;
+
         if (cursorCol < 0 && cursorRow > 0) {
             cursorRow = cursorRow -1;
             cursorCol = CharacterDisplay.WIDTH -1;
-
         }
+
         display.displayChar(' ', cursorRow, cursorCol);
         displayCursor();
     }
+
+    public void moveCursor(int decValue) {
+
+            switch (decValue) {
+                case 23:
+                    if (cursorRow > 0) {
+                        cursorRow = cursorRow - 1;
+                        break;
+                    }
+                case 19:
+                    if (cursorRow < CharacterDisplay.HEIGHT - 1) {
+                        cursorRow = cursorRow + 1;
+                        break;
+                    }
+                case 1:
+                    if (cursorCol > 0) {
+                        cursorCol = cursorCol - 1;
+                        break;
+                    }
+                case 4:
+                    cursorCol = cursorCol + 1;
+                    break;
+            }
+
+            int updatedCursorPositionValue = ((cursorRow+1) * cursorCol);
+
+            while (data.size() < updatedCursorPositionValue) {
+                data.add(' ');
+            }
+            displayCursor();
+    }
+
+
 
     private void displayCursor() {
         display.displayCursor(data.get(cursorRow),

@@ -16,6 +16,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -72,7 +79,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579614181923</updated>
-      <workItem from="1579614183306" duration="20304000" />
+      <workItem from="1579614183306" duration="21725000" />
+      <workItem from="1579695150230" duration="1316000" />
+      <workItem from="1579856657228" duration="11286000" />
     </task>
     <task id="LOCAL−00001" summary="- Added whitespace.&#10;- Extended the amount of chars (from 1 - ø)">
       <created>1579629054156</created>
@@ -92,7 +101,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1579637490024</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="- Small fixes.">
+      <created>1579640832194</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1579640832194</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +118,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -113,6 +130,7 @@
     <MESSAGE value="- Added whitespace.&#10;- Extended the amount of chars (from 1 - ø)" />
     <MESSAGE value="- Changed 2d Array with a LinkedList." />
     <MESSAGE value="- Added backspace possibility.&#10;- Added more characters." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added backspace possibility.&#10;- Added more characters." />
+    <MESSAGE value="- Small fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Small fixes." />
   </component>
 </project>

@@ -11,7 +11,6 @@ import editor.display.CharacterDisplay;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.HeadlessException;
-import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ActionMap;

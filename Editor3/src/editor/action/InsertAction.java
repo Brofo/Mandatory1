@@ -36,6 +36,13 @@ public class InsertAction extends EditorAction {
         if (decimalValueOfChar == 8) {
             doc.backspace();
         }
+        else if (decimalValueOfChar == 23 || decimalValueOfChar == 19 || decimalValueOfChar == 1 || decimalValueOfChar == 4) {
+            doc.moveCursor(decimalValueOfChar);
+            //23 = up   (CTRL + w)
+            //19 = down (CTRL + s)
+            //1 = left  (CTRL + a)
+            //4 = right (CTRL + d)
+        }
         else {
             doc.insertChar(ch);
         }

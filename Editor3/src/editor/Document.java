@@ -6,7 +6,8 @@
 package editor;
 
 import editor.display.CharacterDisplay;
-import java.util.LinkedList;
+
+import java.util.HashMap;
 
 /**
  * This class represents the document being edited. Using a 2d array to hold the
@@ -22,17 +23,28 @@ public class Document {
     private CharacterDisplay display;
     private int cursorRow;
     private int cursorCol;
-    private LinkedList<Character> data;
+    private int totalCharSpaces;
+    private HashMap<Integer, Character> data;
 
     public Document(CharacterDisplay display) {
         this.display = display;
-        data = new LinkedList<>();
+        data = new HashMap<>();
         cursorCol = cursorRow = 0;
         display.displayCursor(' ', cursorRow, cursorCol);
+
+        //Assigning empty spaces to all the key values in the Hash Map.
+        totalCharSpaces = (CharacterDisplay.WIDTH * CharacterDisplay.HEIGHT);
+        int i = 0;
+        while (data.size() < totalCharSpaces) {
+            data.put(i, ' ');
+            i++;
+        }
     }
 
     public void insertChar(char c) {
-        data.add(c);
+        int currentPosition = ((cursorRow+1) * cursorCol);
+        data.put(currentPosition, c);
+
         display.displayChar(c, cursorRow, cursorCol);
         cursorCol++;
         if (cursorCol >= CharacterDisplay.WIDTH) {
@@ -47,13 +59,19 @@ public class Document {
      * at this position.
      */
     public void backspace() {
-
-        data.remove(cursorRow);
+        int currentPosition = ((cursorRow+1) * cursorCol);
         cursorCol = cursorCol - 1;
 
-        if (cursorCol < 0 && cursorRow > 0) {
-            cursorRow = cursorRow -1;
-            cursorCol = CharacterDisplay.WIDTH -1;
+        if (cursorCol < 0) {
+            cursorCol = 0;
+            if (cursorRow > 0) {
+                cursorRow = cursorRow -1;
+                cursorCol = CharacterDisplay.WIDTH -1;
+                data.replace(currentPosition, ' ');
+            }
+        }
+        else {
+            data.replace(currentPosition, ' ');
         }
 
         display.displayChar(' ', cursorRow, cursorCol);
@@ -83,18 +101,14 @@ public class Document {
                     break;
             }
 
-            int updatedCursorPositionValue = ((cursorRow+1) * cursorCol);
-
-            while (data.size() < updatedCursorPositionValue) {
-                data.add(' ');
-            }
             displayCursor();
     }
 
 
 
     private void displayCursor() {
-        display.displayCursor(data.get(cursorRow),
+        int currentPosition = ((cursorRow+1) * cursorCol);
+        display.displayCursor(data.get(currentPosition),
                 cursorRow, cursorCol);
     }
 }
